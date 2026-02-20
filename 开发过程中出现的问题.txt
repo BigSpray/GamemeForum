@@ -1,0 +1,189 @@
+1、登录注册页面的透明效果
+2、vue通过axios向后端django发信息的发送格式/跨域问题
+Not Found: /register/[object Object]
+
+Forbidden (Origin checking failed - http://localhost:5173 does not match any trusted origins.): /register/
+[27/Feb/2025 00:39:24] "POST /register/ HTTP/1.1" 403 2549
+3、这个注册的页面怎么通过axios向后端django页面传递数据并且，django页面怎么将数据导入到数据库中
+4、延迟跳转
+5、margin不同div块定位
+6、icon版本更新不显示因为名字换了
+7、如何使用axios
+8、关于注册中密码的显示问题涉及的方方面面
+9、悬浮窗应用及相关的问题
+10、上传文件，包括图片视频等问题。
+11、CSRF保护，导致上传后端数据库失败
+12、views视图函数中对应模型出现问题
+13、接口返回img/video的相关操作
+14、图片显示问题，加上前缀
+15、post跨域要加上@csrf_exempt
+16、删除前端传过来的参数，因为数据格式不同，有相应的不同的处理办法，正确处理json数据
+17、wangEditor5使用
+18、editor浅拷贝
+19、文本
+20、Django 和 Django REST Framework  // 自定义api接口
+21、修改贴子富文本表情不能导入
+对内容进行清理和转义
+在将 wangEditor 的内容发送到后端之前，对其进行清理和转义，确保内容不包含会导致数据库或验证错误的特殊字符。
+前端处理
+在前端的 savecontent 方法中，对 editorContent 进行清理和转义。可以使用 DOMPurify 库来清理 HTML 内容，避免 XSS 攻击和特殊字符带来的问题。
+在 settings.py 中，确保数据库配置使用 utf8mb4 字符集：
+22、echarts 选项式API mounted  组合式API onMounted
+23、安全考虑
+虽然去除了转义，但为了防止 XSS 攻击，在前端展示富文本内容时，可以使用一些安全的方式进行渲染。例如，使用 DOMPurify 库对富文本内容进行清理。在前端代码中，确保在使用 v-html 指令渲染富文本时，先对内容进行清理：
+24、在 update_blog 函数中，去除对 title 和 content 字段的 escape 函数调用。因为富文本内容本身就包含 HTML 标签，不应该进行转义。
+25、return JsonResponse({'blogs': blog_list}, safe=False)一个字典
+直接的一个列表    return JsonResponse(userlist, safe=False)
+26、素材选自iconfont
+27、图片之下 z-index=-1
+28、const seriesData = this.option.series[0].data;修改前者可以修改后者的值；在 JavaScript 中，这是因为对象和数组都是引用类型，而不是值类型。下面为你详细解释为何修改 seriesData 的值能够改变 option 内的值。
+29、Ant Design Vue
+30、v-for使用
+31、map使用封装数组 this.options = this.user.map(item => ({
+          label: item.type,
+          value: item.type
+        }));
+32、前端传递字符串后端接受select_value = request.body.decode('utf-8')
+33、使用iloveIMG网站进行裁剪
+34、首页名字不显示 下拉框组件的问题
+35、当我的鼠标悬停在user.name上面时，会弹出下拉框，但是这个name周围有一圈难看的黑线，怎么处理掉
+/* 去除所有元素聚焦时的默认边框 */
+*:focus {
+outline: none;
+}
+36、codeeeee 和photokit
+37、单选框默认值 <el-radio-group v-model="radio1" class="ml-4" model-value="manager">
+                            <el-radio value="manager" size="large">管理员</el-radio>
+                            <el-radio value="user" size="large">用户</el-radio>
+                        </el-radio-group>
+38、怎么让运行的vue网站的图标变成自己要设定的？
+39、django中admin后台添加数据时，所选的时间字段与北京时间有时差，怎么纠正
+# settings.py
+
+# 设置为 True 以启用时区支持
+USE_TZ = True
+
+# 设置时区为亚洲/上海，即北京时间
+40、设置img的宽高后，图片被压扁了，有没有解决方案
+object-fit: cover;
+TIME_ZONE = 'Asia/Shanghai'
+41、title展示在右侧 el-col为flex
+42moment不能格式化日期  时间大问题！！！！代码解释
+在 get_blogs 函数中，添加了如下代码：
+python
+if single_blog.last_edit_time:
+    blog_dict['last_edit_time'] = single_blog.last_edit_time.strftime('%Y年%m月%d日 %H:%M')
+
+这部分代码会检查 last_edit_time 是否存在，如果存在，就使用 strftime 方法将其转换为 '%Y年%m月%d日 %H:%M' 格式的字符串，然后添加到 blog_dict 中。这样，前端接收到的 last_edit_time 就是一个字符串，能够正确解析和展示。
+43、引入上海时区，使后端数据传给前端是正确的
+timezone.localtime(single_blog.last_edit_time)：把 UTC 时间转换为 settings.py 里配置的本地时间（也就是上海时间）。
+local_time.strftime('%Y年%m月%d日 %H:%M')：将转换后的本地时间格式化为所需的字符串格式。
+44、el-col中  align-items: center; 实现居中
+45、flex-direction: column; flex中实现垂直布局、
+46、为了让论坛热帖的标题和下面的浏览量信息的第一个字及其下行线都对齐，可以通过给标题和浏览量信息添加相同的内边距或者外边距来实现。以下是修改后的代码：
+47、设置model中不是必填字段, blank=True, null=True
+48、实现热帖的前面阿拉伯数字
+49、怎么将标签固定在左边
+50、这个错误提示表明在使用 ElCarousel 组件时，motionBlur 属性期望传入一个布尔类型的值，但你传入了字符串 "true"。在 Vue 中，当你在模板里给组件属性赋值时，如果不使用 v-bind（简写为 :），传入的值会被当作字符串处理。
+同样的，分隔  也要：
+51、pagination使用
+<el-pagination 
+                v-model:current-page="pagenum"
+                v-model:page-size="pagesize"
+                :page-sizes="[4, 8]"
+                background
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="total"
+                @update:current-page="onCurrentPageChange"
+                @update:page-size="onPageSizeChange"
+            />
+onCurrentPageChange(newPage) {
+            this.pagenum = newPage;
+            this.updateTableData();
+        },
+        onPageSizeChange(newSize) {
+            this.pagesize = newSize;
+            this.pagenum = 1; // 切换每页记录数时重置页码为 1
+            this.updateTableData();
+        },
+        updateTableData() {
+            const start = (this.pagenum - 1) * this.pagesize;
+            const end = start + this.pagesize;
+            this.imgtabledata = this.allImgData.slice(start, end);
+        }
+52、
+ 这个错误和之前 motionBlur 的错误类似，是因为在使用 ElPagination 组件时，pageSize 属性期望接收一个数字类型的值，但你传入了字符串 "6"。在 Vue 模板里，不使用 v-bind（简写为 :）绑定属性时，属性值会被当作字符串处理。
+51、超燃翻唱下面那条线
+52、走马灯中铺满照片
+要让走马框（el-carousel）里的图片铺满整个 div（flex: 1），你可以尝试以下几种方法来调整图片的样式。以下是具体的修改建议：
+使用 width: 100%; 和 height: 100%;：将图片的宽度和高度设置为相对于父容器的百分比，使其填满整个容器。
+设置 object-fit 属性：object-fit 属性可以控制图片如何适应其容器。例如，object-fit: cover 会使图片完全覆盖容器，同时保持其纵横比。
+53、走马灯添加v-if v-else 实现转到首页的时候不存在加载没有
+54、添加删除时
+Axios 默认使用 application/json 格式发送数据，而 Django 的 request.POST 只能处理 application/x-www-form-urlencoded 或 multipart/form-data 格式的数据。因此，后端可能无法正确解析 JSON 格式的请求体。
+需要添加data = json.loads(request.body)
+而非id = request.POST.get('id')
+55、刷新location.reload()
+56、后台传过去的是upimg/material_img/640_1_CfPD45c.jpg需要去掉前面的upimg/
+57、div超出限制为省略号
+.ellipsis-content {
+    width: 200px; /* 设置宽度，可根据实际情况调整 */
+    white-space: nowrap; /* 禁止文本换行 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    text-overflow: ellipsis; /* 超出部分显示为省略号 */
+}
+58、使用<el-skeleton :rows="5" animated /> 与v-if与lazy懒加载实现进入页面时的动画效果
+59、我们将使用 Pinia 来管理用户数据并使其全局可用，同时在验证成功后将用户数据传递到下一个页面。
+60、el-upload，前端向后端
+61、异步操作顺序问题：在 submitUserInfo 方法中，this.$refs.uploadRef.submit() 执行上传操作，但它是异步的。而在上传完成前，axios.post('http://127.0.0.1:8000/updateUserInfo/', this.user) 就已经执行了，这可能导致更新用户信息时使用的还是旧的头像 URL。可以通过 Promise 或 async/await 来确保上传操作完成后再进行用户信息更新。
+62、上传头像和名字会重置登录逻辑，需要进行后台的添加对应的前缀和前台的要进行pinia的set
+63、cursor：pointer可以展示点击的那个小手
+64、实现点赞/收藏功能
+65、实现浏览量功能
+66、《凑热闹》 -知更鸟版 《把回忆拼好给你》 -流萤版	 基于RVC语音模型进行创造！
+67、评论与copyright重合
+68、评论功能
+69、 const response = await axios.post('http://127.0.0.1:8000/deletecomment/', {
+                    id: commentId
+                });
+少了个斜杠导致id不传
+70、添加{}可以减少后台函数的覆写
+axios.post("http://127.0.0.1:8000/getcomments/", {}).then((res) => {
+        if (res.data && res.data.comments) {
+            this.commenttotal = res.data.comments.length;
+        } else {
+            console.error('获取评论数据格式错误:', res.data);
+        }
+    }).catch((error) => {
+        console.error('获取评论数据失败:', error);
+    });
+71、显示页面名字
+72、点击就能显示列表
+73、文件上传问题
+从你给出的前端输出以及代码来看，问题或许出在 handleCoverFileChange 和 handleVideoFileChange 方法里。在这些方法中，你把 file 对象（实际上是 el-upload 组件的文件信息对象）直接赋值给了 coverFile 和 videoFile，但 FormData 需要的是原生的 File 对象。
+问题分析
+在 el-upload 的 on-change 事件回调里，传入的 file 参数是一个包含文件信息的对象，真正的文件数据存于 file.raw 属性中。所以，你要把 file.raw 赋值给 coverFile 和 videoFile。
+修改建议
+74、文件上传问题，啊啊啊啊啊，终于成功了！
+75、博客字段的编辑时间，一直自动更新，设置为编辑时更改
+76、BUG  保存名字之后，因为之前的博客绑定有名字需要进行更改
+77、固定在下方
+position: relative，然后给分页元素设置 position: absolute 并定位到页面底部。
+78、            <el-button type="primary" round @click="this.$router.push('/main/feedback')">反馈</el-button>
+加上美元符实现跳转   
+79、wangeditor5 中有关图片上传的功能  OK!
+80、在当前页面搜索之后重新搜索
+添加 watch 监听 $route.query：当路由参数变化时，重新初始化搜索参数并获取数据，确保每次搜索关键词变化都能正确更新页面内容。
+initSearchParams 方法：将获取路由参数的逻辑封装成一个方法，方便在 created 钩子和 watch 回调中调用。
+81、wangeditor5只能放一个照片进去
+                        onBeforeUpload(file) {
+                            console.log('onBeforeUpload', file)
+                            return true; // 允许上传
+                        },
+82、这个错误提示 Request body exceeded settings.DATA_UPLOAD_MAX_MEMORY_SIZE 表明在处理 PUT /updateblog/66/ 请求时，请求体的大小超过了服务器设置的最大内存上传限制。以下是可能的原因和解决方案：
+setting配置中
+DATA_UPLOAD_MAX_MEMORY_SIZE = 16 * 1024 * 1024  # 设置为16MB
+83、实现跳转到无定义路由时至404页面
+84、添加语音助手
+85、添加加载动画属性
+86、修改用户名时修改评论名
